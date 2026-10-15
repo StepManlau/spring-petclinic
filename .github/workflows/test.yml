@@ -1,4 +1,4 @@
-name: "Exemple de workflow"
+name: "Exemple de workflow pour javascript + docker"
 on:
   push:
     branches:
@@ -16,3 +16,11 @@ jobs:
       with:
         username: "Jean"
         greeting: "Salut"
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Exécuter l'action Docker
+      uses: ./docker_workflow/
+      with:
+        message: "Salut de l'action Docker"
